@@ -11,6 +11,25 @@
   <router-view/>
 </template>
 
+<script setup>
+import LoginView from "@/views/LoginView.vue";
+import {ref} from 'vue';
+import axios from 'axios';
+import RegistrationView from "@/views/RegistrationView.vue";
+
+const isLoggedIn = ref(false);
+
+// Проверка наличия токена в localStorage при загрузке компонента
+if (localStorage.getItem('token')) {
+  isLoggedIn.value = true;
+}
+
+const logout = () => {
+  localStorage.removeItem('token');
+  isLoggedIn.value = false;
+};
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -40,21 +59,3 @@ nav a.router-link-exact-active {
   text-decoration: underline;
 }
 </style>
-<script setup>
-import LoginView from "@/views/LoginView.vue";
-  import {ref} from 'vue';
-  import axios from 'axios';
-import RegistrationView from "@/views/RegistrationView.vue";
-
-  const isLoggedIn = ref(false);
-
-  // Проверка наличия токена в localStorage при загрузке компонента
-  if (localStorage.getItem('token')) {
-  isLoggedIn.value = true;
-}
-
-  const logout = () => {
-  localStorage.removeItem('token');
-  isLoggedIn.value = false;
-};
-</script>

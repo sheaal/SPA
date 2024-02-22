@@ -11,38 +11,18 @@
   </div>
   <CartView :cart="cart"/>
 </template>
-<style>
-.catalog{
-  margin-top: 30px;
-  gap: 30px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-.product-list{
-  border: 3px solid #f2ecfb;
-  border-radius: 7px;
-  height: 265px;
-}
-.product-list:hover {
-  box-shadow: 2px 4px 10px #9780cb;
-}
-.prod-but{
-  border-radius: 7px;
-  background: #c9a9f3;
-  margin-bottom: 20px;
-}
-.prod-but:hover {
-  box-shadow: 0px 1px 13px #595858;
-}
-</style>
 
 <script>
 import axios from "axios";
 import CartView from "./CartView.vue";
+// import { mapState } from 'vuex';
 export default {
   components: {
     CartView
   },
+  // computed: {
+  //   ...mapState(['cart'])
+  // },
   data() {
     return {
       catalog: [],
@@ -93,3 +73,28 @@ export default {
 
 };
 </script>
+
+<style>
+.catalog{
+  margin-top: 30px;
+  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.product-list{
+  border: 3px solid #f2ecfb;
+  border-radius: 7px;
+  height: 265px;
+}
+.product-list:hover {
+  box-shadow: 2px 4px 10px #9780cb;
+}
+.prod-but{
+  border-radius: 7px;
+  background: #c9a9f3;
+  margin-bottom: 20px;
+}
+.prod-but:hover {
+  box-shadow: 0px 1px 13px #595858;
+}
+</style>
